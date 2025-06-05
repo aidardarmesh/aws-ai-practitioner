@@ -1,3 +1,4 @@
+import json
 import logging
 import os
 
@@ -12,6 +13,7 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
+application = ApplicationBuilder().token(os.getenv('TG_TOKEN')).build()
 
 
 async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -25,10 +27,23 @@ async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=update.effective_chat.id, text=response)
 
 
-if __name__ == '__main__':
-    application = ApplicationBuilder().token(os.getenv('TG_TOKEN')).build()
-
+async def main(event, context):
     ask_handler = CommandHandler('ask', ask)
     application.add_handler(ask_handler)
 
-    application.run_polling()
+    try:
+        await application.initialize()
+        await application.process_update(
+            Update.de_json(json.loads(event["body"]), application.bot)
+        )
+
+        return {
+            'statusCode': 200,
+            'body': 'Success'
+        }
+
+    except Exception as exc:
+        return {
+            'statusCode': 500,
+            'body': 'Failure'
+        }
