@@ -1,8 +1,6 @@
 import asyncio
 import json
 import logging
-import os
-import base64
 
 import boto3
 from botocore.exceptions import ClientError
@@ -19,6 +17,9 @@ logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO
 )
+SECRET_NAME = "NiaSanchezBotAPIKey"
+REGION_NAME = "us-east-1"
+LLM_MODEL_ID = "amazon.titan-text-express-v1"
 
 
 def get_secret(secret_name, region_name):
@@ -40,18 +41,16 @@ def get_secret(secret_name, region_name):
 
     return get_secret_value_response['SecretString']
 
-application = ApplicationBuilder().token(get_secret("NiaSanchezBotAPIKey", "us-east-1")).build()
+application = ApplicationBuilder().token(get_secret(SECRET_NAME, REGION_NAME)).build()
 
 bedrock_client = boto3.client(
     service_name="bedrock-runtime",
-    region_name=os.getenv("AWS_REGION"),
+    region_name=REGION_NAME,
 )
-
-model_id = os.getenv("AWS_BEDROCK_MODEL_ID")
 
 llm = Bedrock(
     client=bedrock_client,
-    model_id=model_id,
+    model_id=LLM_MODEL_ID,
     model_kwargs={
         "temperature": 0.7,
         # "max_tokens": 1024,
