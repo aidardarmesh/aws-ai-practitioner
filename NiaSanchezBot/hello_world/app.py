@@ -84,7 +84,7 @@ chain = LLMChain(
 
 
 def lambda_handler(event, context):
-    return asyncio.get_event_loop().run_until_complete(main(event, context))
+    return asyncio.get_event_loop().run_until_complete(main(event))
 
 
 async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -98,9 +98,12 @@ async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await context.bot.send_message(chat_id=update.effective_chat.id, text=response)
 
 
-async def main(event, context):
+async def main(event):
     ask_handler = CommandHandler('ask', ask)
     application.add_handler(ask_handler)
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.INFO)
+    logger.info("Received event body: %s", event["body"])
 
     try:
         await application.initialize()

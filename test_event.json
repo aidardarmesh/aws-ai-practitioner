@@ -1,0 +1,114 @@
+{
+    "resource": "/hello",
+    "path": "/hello",
+    "httpMethod": "POST",
+    "headers": {
+        "Accept-Encoding": "gzip, deflate",
+        "CloudFront-Forwarded-Proto": "https",
+        "CloudFront-Is-Desktop-Viewer": "true",
+        "CloudFront-Is-Mobile-Viewer": "false",
+        "CloudFront-Is-SmartTV-Viewer": "false",
+        "CloudFront-Is-Tablet-Viewer": "false",
+        "CloudFront-Viewer-ASN": "62041",
+        "CloudFront-Viewer-Country": "NL",
+        "Content-Type": "application/json",
+        "Host": "56hlfb5bv0.execute-api.us-east-1.amazonaws.com",
+        "User-Agent": "Amazon CloudFront",
+        "Via": "1.1 033f456f54ceb7135f57b018b334dfdc.cloudfront.net (CloudFront)",
+        "X-Amz-Cf-Id": "LW_P9gxJKqtZlbwtejkY-H4qji-KH6JL-OFAK0TuG6_Jwg201Tvpcw==",
+        "X-Amzn-Trace-Id": "Root=1-6852dc5f-31d0eeda3f057add7edf43c6",
+        "X-Forwarded-For": "91.108.5.12, 18.68.51.138",
+        "X-Forwarded-Port": "443",
+        "X-Forwarded-Proto": "https"
+    },
+    "multiValueHeaders": {
+        "Accept-Encoding": [
+            "gzip, deflate"
+        ],
+        "CloudFront-Forwarded-Proto": [
+            "https"
+        ],
+        "CloudFront-Is-Desktop-Viewer": [
+            "true"
+        ],
+        "CloudFront-Is-Mobile-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-SmartTV-Viewer": [
+            "false"
+        ],
+        "CloudFront-Is-Tablet-Viewer": [
+            "false"
+        ],
+        "CloudFront-Viewer-ASN": [
+            "62041"
+        ],
+        "CloudFront-Viewer-Country": [
+            "NL"
+        ],
+        "Content-Type": [
+            "application/json"
+        ],
+        "Host": [
+            "56hlfb5bv0.execute-api.us-east-1.amazonaws.com"
+        ],
+        "User-Agent": [
+            "Amazon CloudFront"
+        ],
+        "Via": [
+            "1.1 033f456f54ceb7135f57b018b334dfdc.cloudfront.net (CloudFront)"
+        ],
+        "X-Amz-Cf-Id": [
+            "LW_P9gxJKqtZlbwtejkY-H4qji-KH6JL-OFAK0TuG6_Jwg201Tvpcw=="
+        ],
+        "X-Amzn-Trace-Id": [
+            "Root=1-6852dc5f-31d0eeda3f057add7edf43c6"
+        ],
+        "X-Forwarded-For": [
+            "91.108.5.12, 18.68.51.138"
+        ],
+        "X-Forwarded-Port": [
+            "443"
+        ],
+        "X-Forwarded-Proto": [
+            "https"
+        ]
+    },
+    "queryStringParameters": null,
+    "multiValueQueryStringParameters": null,
+    "pathParameters": null,
+    "stageVariables": null,
+    "requestContext": {
+        "resourceId": "tmyjzv",
+        "resourcePath": "/hello",
+        "httpMethod": "POST",
+        "extendedRequestId": "MXde-H4HIAMEMgA=",
+        "requestTime": "18/Jun/2025:15:33:51 +0000",
+        "path": "/Prod/hello",
+        "accountId": "992382639776",
+        "protocol": "HTTP/1.1",
+        "stage": "Prod",
+        "domainPrefix": "56hlfb5bv0",
+        "requestTimeEpoch": 1750260831406,
+        "requestId": "43c64011-e3b1-4b3f-9922-3c6a3a858edf",
+        "identity": {
+            "cognitoIdentityPoolId": null,
+            "accountId": null,
+            "cognitoIdentityId": null,
+            "caller": null,
+            "sourceIp": "91.108.5.12",
+            "principalOrgId": null,
+            "accessKey": null,
+            "cognitoAuthenticationType": null,
+            "cognitoAuthenticationProvider": null,
+            "userArn": null,
+            "userAgent": "Amazon CloudFront",
+            "user": null
+        },
+        "domainName": "56hlfb5bv0.execute-api.us-east-1.amazonaws.com",
+        "deploymentId": "ywbt88",
+        "apiId": "56hlfb5bv0"
+    },
+    "body": "{\"update_id\":554425668,\n\"message\":{\"message_id\":65,\"from\":{\"id\":236024799,\"is_bot\":false,\"first_name\":\"Aidar (Adam)\",\"last_name\":\"Darmesh\",\"username\":\"aidar_io\",\"language_code\":\"en\"},\"chat\":{\"id\":-4912393402,\"title\":\"Aidar (Adam) & Samsung\",\"type\":\"group\",\"all_members_are_administrators\":true,\"accepted_gift_types\":{\"unlimited_gifts\":false,\"limited_gifts\":false,\"unique_gifts\":false,\"premium_subscription\":false}},\"date\":1750260817,\"text\":\"/ask \\u043a\\u0442\\u043e \\u0442\\u0430\\u043a\\u043e\\u0435 \\u0410\\u043b\\u0435\\u043a\\u0441 \\u041b\\u0435\\u0441\\u043b\\u0438?\",\"entities\":[{\"offset\":0,\"length\":4,\"type\":\"bot_command\"}]}}",
+    "isBase64Encoded": false
+}
