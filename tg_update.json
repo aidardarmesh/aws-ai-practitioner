@@ -1,0 +1,35 @@
+{
+  "update_id": 554425668,
+  "message": {
+    "message_id": 65,
+    "from": {
+      "id": 236024799,
+      "is_bot": false,
+      "first_name": "Aidar (Adam)",
+      "last_name": "Darmesh",
+      "username": "aidar_io",
+      "language_code": "en"
+    },
+    "chat": {
+      "id": -4912393402,
+      "title": "Aidar (Adam) & Samsung",
+      "type": "group",
+      "all_members_are_administrators": true,
+      "accepted_gift_types": {
+        "unlimited_gifts": false,
+        "limited_gifts": false,
+        "unique_gifts": false,
+        "premium_subscription": false
+      }
+    },
+    "date": 1750260817,
+    "text": "/ask \u043a\u0442\u043e \u0442\u0430\u043a\u043e\u0435 \u0410\u043b\u0435\u043a\u0441 \u041b\u0435\u0441\u043b\u0438?",
+    "entities": [
+      {
+        "offset": 0,
+        "length": 4,
+        "type": "bot_command"
+      }
+    ]
+  }
+}

@@ -91,11 +91,11 @@ async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
     question = update.message.text.replace('/ask ', '', 1).strip()
 
     if not question:
-        await context.bot.send_message(chat_id=update.effective_chat.id, text="Задавайте вопрос, используя команду /ask <ваш вопрос>.")
+        await context.bot.send_message(chat_id=update.chat.id, text="Задавайте вопрос, используя команду /ask <ваш вопрос>.")
         return
 
     response = chain.run(question)
-    await context.bot.send_message(chat_id=update.effective_chat.id, text=response)
+    await context.bot.send_message(chat_id=update.chat.id, text=response)
 
 
 async def main(event):
@@ -104,6 +104,7 @@ async def main(event):
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
     logger.info("Received event body: %s", event["body"])
+    logger.info("Starting bot: %s", application.bot.name)
 
     try:
         await application.initialize()
