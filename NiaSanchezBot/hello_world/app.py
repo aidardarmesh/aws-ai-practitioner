@@ -13,10 +13,9 @@ from telegram import Update
 from telegram.ext import Application, ContextTypes, CommandHandler
 
 load_dotenv(verbose=True)
-logging.basicConfig(
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    level=logging.INFO
-)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
 SECRET_NAME = "NiaSanchezBotAPIKey"
 REGION_NAME = "us-east-1"
 LLM_MODEL_ID = "amazon.titan-text-express-v1"
@@ -41,7 +40,8 @@ def get_secret(secret_name, region_name):
 
     return get_secret_value_response['SecretString']
 
-application = Application.builder().token(get_secret(SECRET_NAME, REGION_NAME)).build()
+secret_object = json.loads(get_secret(SECRET_NAME, REGION_NAME))
+application = Application.builder().token(secret_object["TG_TOKEN"]).build()
 
 bedrock_client = boto3.client(
     service_name="bedrock-runtime",
@@ -101,8 +101,7 @@ async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def main(event):
     ask_handler = CommandHandler('ask', ask)
     application.add_handler(ask_handler)
-    logger = logging.getLogger(__name__)
-    logger.setLevel(logging.INFO)
+
     logger.info("Received event body: %s", event["body"])
 
     try:
@@ -119,5 +118,5 @@ async def main(event):
     except Exception as exc:
         return {
             'statusCode': 500,
-            'body': 'Failure'
+            'body': str(exc)
         }
