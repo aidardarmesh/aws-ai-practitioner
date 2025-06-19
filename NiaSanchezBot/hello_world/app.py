@@ -108,9 +108,10 @@ async def main(event):
 
     try:
         await application.initialize()
-        await application.process_update(
-            Update.de_json(json.loads(event["body"]), application.bot)
-        )
+        await application.update_queue.put(Update.de_json(data=event["body"], bot=application.bot))
+        # await application.process_update(
+        #     Update.de_json(json.loads(event["body"]), application.bot)
+        # )
 
         return {
             'statusCode': 200,
