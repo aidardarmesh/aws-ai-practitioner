@@ -104,7 +104,6 @@ async def main(event):
     logger = logging.getLogger(__name__)
     logger.setLevel(logging.INFO)
     logger.info("Received event body: %s", event["body"])
-    logger.info("Starting bot: %s", application.bot.name)
 
     try:
         await application.initialize()
