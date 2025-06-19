@@ -94,7 +94,8 @@ async def ask(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await context.bot.send_message(chat_id=update.chat.id, text="Задавайте вопрос, используя команду /ask <ваш вопрос>.")
         return
 
-    response = chain.run(question)
+    # response = chain.run(question)
+    response = "hello man"
     await context.bot.send_message(chat_id=update.chat.id, text=response)
 
 
